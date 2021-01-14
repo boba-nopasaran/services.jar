@@ -12479,7 +12479,10 @@
 .end method
 
 .method public closeWiFiBT()V
-    .registers 4
+#by boba 11.08.2020
+#restore wifi
+#    .registers 4
+    .registers 7
 
     .prologue
     const/4 v2, 0x0
@@ -12532,10 +12535,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+#by boba 11.08.2020
+#restore wifi
+iget-object v4, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+move-result-object v4
+const-string v5, "wifi_on"
+invoke-static {v4, v5}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+move-result v3
+
     .line 4350
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0, v2}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
+
+#by boba 11.08.2020
+#restore wifi
+invoke-static {v4, v5, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 4353
     :cond_2f
