@@ -223,7 +223,10 @@
     invoke-virtual {p0, v6}, Lcom/android/server/power/PowerManagerService$PowerManagerHandler;->removeMessages(I)V
 
     .line 3400
-    const-string v2, "ro.car_sleep_off_ext_device"
+#by boba 07.03.2021
+#car_sleep_off_ext_device
+#    const-string v2, "ro.car_sleep_off_ext_device"
+const-string v2, "persist.car_sleep_off_ext_dev"
 
     invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

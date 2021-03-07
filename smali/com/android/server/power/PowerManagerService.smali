@@ -9054,7 +9054,10 @@
 
     .line 4228
     .local v2, "ret":Z
-    const-string v4, "ro.car_sleep_off_ext_device"
+#by boba 07.03.2021
+#car_sleep_off_ext_device
+#    const-string v4, "ro.car_sleep_off_ext_device"
+const-string v4, "persist.car_sleep_off_ext_dev"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -9077,8 +9080,10 @@
     invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v5
-
-    const-string v6, "), ro.car_sleep_off_ext_device="
+#by boba 07.03.2021
+#car_sleep_off_ext_device
+#    const-string v6, "), ro.car_sleep_off_ext_device="
+const-string v6, "), persist.car_sleep_off_ext_dev="
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
