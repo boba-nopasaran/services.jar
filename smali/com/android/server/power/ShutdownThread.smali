@@ -848,8 +848,11 @@
     :cond_14c
     :try_start_14c
     new-instance v4, Landroid/app/ProgressDialog;
-
-    invoke-direct {v4, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
+#by boba 07.08.2021
+#dark theme
+#    invoke-direct {v4, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
+const v6, 0x10304a5
+invoke-direct {v4, p0, v6}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
     sput-object v4, Lcom/android/server/power/ShutdownThread;->pd:Landroid/app/ProgressDialog;
 
